@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+	android:layout_height="match_parent" tools:context="${packageName}.${activityClass}">
+
+	<ImageView android:layout_width="match_parent"
+		android:layout_height="match_parent" android:contentDescription="@string/content_description"
+		android:background="#B3E7B1" android:scaleType="centerCrop" />
+
+	<RelativeLayout android:layout_width="match_parent"
+		android:layout_height="match_parent" tools:context="${packageName}.${activityClass}">
+
+		<ImageView android:id="@+id/iv1_header"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+			android:layout_marginTop="10dp" android:contentDescription="@string/content_description"
+			android:scaleType="centerCrop" android:src="@drawable/guestcheck" />
+
+		<ImageButton android:id="@+id/spkron"
+			android:contentDescription="@string/content_description"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginTop="8dp" android:layout_marginLeft="25dp"
+			android:layout_toRightOf="@id/iv1_header"
+			android:layout_alignParentTop="true" android:background="@drawable/spkron"
+			android:src="@drawable/spkron" />
+
+
+		<TextView android:id="@+id/mark" android:layout_width="wrap_content"
+			android:text="" android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true" android:layout_below="@+id/iv1_header"
+			android:ems="1" />
+
+
+		<!-- TIP PERCENT ? -->
+		<TextView android:id="@+id/tv2_tip_percent" android:textSize="30sp"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" android:layout_below="@id/mark"
+			android:layout_marginLeft="20dp" android:layout_marginTop="20dp"
+			android:ems="10" android:textColor="#000000" android:text="@string/tip_percent" />
+
+
+		<EditText android:id="@+id/et2_tip_percent"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignBaseline="@id/tv2_tip_percent"
+			android:layout_alignBottom="@id/tv2_tip_percent"
+			android:layout_toRightOf="@id/mark" android:gravity="right"
+			android:maxEms="3" android:textColor="#000000" android:inputType="number|numberDecimal"
+			android:text="@string/num15" />
+
+		<ImageButton android:id="@+id/downBtn"
+			android:contentDescription="@string/content_description"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignBottom="@id/et2_tip_percent"
+			android:layout_toLeftOf="@id/et2_tip_percent" android:background="@drawable/downbkgrd"
+			android:src="@drawable/down" />
+
+		<TextView android:id="@+id/tv2_percent_char"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignBaseline="@id/et2_tip_percent"
+			android:layout_alignBottom="@id/et2_tip_percent"
+			android:layout_toRightOf="@id/et2_tip_percent"
+			android:layout_marginLeft="-8dp" android:gravity="left" android:ems="1"
+			android:textColor="#000000" android:textSize="20sp" android:text="@string/percentsign" />
+		
+		<ImageButton android:id="@+id/upBtn"
+			android:contentDescription="@string/content_description"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignBottom="@id/tv2_percent_char"
+			android:layout_toRightOf="@id/tv2_percent_char" android:background="@drawable/downbkgrd"
+			android:src="@drawable/up" />
+
+		<!-- CHECK TOTAL? -->
+		<TextView android:id="@+id/tv1_total" android:layout_width="wrap_content"
+			android:hint="@string/zero" android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" android:layout_below="@id/tv2_tip_percent"
+			android:layout_marginLeft="20dp" android:layout_marginTop="20dp"
+			android:textColor="#000000" android:textSize="30sp" android:text="@string/check_total" />
+
+		<EditText android:id="@+id/et1_total" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_alignBaseline="@id/tv1_total"
+			android:layout_alignParentRight="true" android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp" android:maxEms="6" android:gravity="left"
+			android:textColor="#FF0000" android:inputType="number|numberDecimal"
+			android:text="@string/num0" />
+
+		<!-- "do the calculation" button -->
+		<ImageButton android:id="@+id/btn"
+			android:contentDescription="@string/content_description"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_below="@id/tv1_total" android:layout_alignParentLeft="true"
+			android:layout_marginTop="15dp"   android:layout_marginLeft="35dp"
+			android:src="@drawable/btn"
+			android:background="@drawable/btn_bckgrd" android:onClick="calculate" />
+
+
+		<!-- TIP AMOUNT (in red, calculated field, hidden till total entered) -->
+		<TextView android:id="@+id/tv3_tip_amount"
+			android:visibility="invisible" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+			android:layout_marginLeft="20dp" android:layout_below="@id/btn"
+			android:layout_marginTop="20dp" android:ems="8" android:textColor="#000000"
+			android:textSize="30sp" android:text="@string/amount_to_tip" />
+
+		<EditText android:id="@+id/et3_tip_amount" android:clickable="false"
+			android:cursorVisible="false" android:focusable="false"  android:layout_marginRight="10dp"
+			android:focusableInTouchMode="false" android:visibility="invisible"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignBaseline="@id/tv3_tip_amount"
+			android:layout_alignParentRight="true" android:gravity="right"
+			android:ems="8" android:textColor="#000000" android:inputType="number"
+			android:text="@string/zero" />
+
+
+		<!-- Total bill with tip -->
+		<TextView android:id="@+id/tv4_total_with_tip"
+			android:visibility="invisible" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+			android:layout_marginLeft="20dp" android:layout_below="@id/tv3_tip_amount"
+			android:layout_marginTop="20dp"  android:textColor="#000000"
+			android:textSize="30sp" android:text="@string/total_with_tip" />
+
+		<TextView android:id="@+id/et4_total_with_tip"
+			android:visibility="invisible" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:layout_alignBaseline="@id/tv4_total_with_tip"
+			android:layout_marginRight="22dp"			
+			android:layout_alignParentRight="true" android:gravity="right"
+			android:ems="6" android:textColor="#000000" 
+			android:textSize="18sp"
+			android:text="@string/zero" />
+
+		<!-- SPLIT HOW MANY WAYS? -->
+		<TextView android:id="@+id/tv5_split" android:visibility="invisible"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" android:layout_marginLeft="20dp"
+			android:layout_below="@id/tv4_total_with_tip"
+			android:layout_marginTop="20dp"  android:textSize="30sp"
+			android:text="@string/split_how_many_ways" android:textColor="#000000" />
+
+		<EditText android:visibility="invisible" android:id="@+id/et5_split"
+		    android:layout_marginLeft="5dp"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/tv5_split" android:layout_alignBaseline="@id/tv5_split"
+			android:gravity="right" android:maxEms="3" android:textColor="#000000"
+			android:inputType="number" android:text="@string/num_1nodecpoint" />
+
+		<!-- Each person pays -->
+		<TextView android:id="@+id/tv6_per_person"
+			android:visibility="invisible" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+			android:layout_marginLeft="20dp" android:layout_below="@id/tv5_split"
+			android:layout_marginTop="20dp" android:textSize="30sp" android:ems="10"
+			android:text="@string/per_person" android:textColor="#000000" />
+
+		<EditText android:id="@+id/et6_per_person"
+			android:visibility="invisible" android:layout_width="wrap_content"  android:textSize="30sp"
+			android:layout_marginRight="10dp"
+			android:layout_height="wrap_content" android:layout_toRightOf="@id/mark"
+			android:layout_alignBaseline="@id/tv6_per_person" android:gravity="right"
+			android:ems="10" android:inputType="number" android:textColor="#FF0000"
+			android:text="@string/num999" />
+
+	</RelativeLayout>
+
+</FrameLayout>
