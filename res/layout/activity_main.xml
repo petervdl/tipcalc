@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-	android:layout_height="match_parent" tools:context="${packageName}.${activityClass}">
+	android:layout_height="wrap_content" tools:context="${packageName}.${activityClass}">
 
+<FrameLayout android:layout_width="match_parent"
+	android:layout_height="wrap_content" tools:context="${packageName}.${activityClass}">
+    
 	<ImageView android:layout_width="match_parent"
 		android:layout_height="match_parent" android:contentDescription="@string/content_description"
 		android:background="#B3E7B1" android:scaleType="centerCrop" />
@@ -165,3 +168,5 @@
 	</RelativeLayout>
 
 </FrameLayout>
+
+</ScrollView>
